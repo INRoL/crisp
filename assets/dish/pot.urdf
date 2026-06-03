@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<robot name="door">
+	<!-- Material -->
+	<material name="rock">
+		<color rgba="0.62 0.70 0.72 1.0"/>
+	</material>
+	
+	<material name="wood">
+		<color rgba="0.55 0.32 0.16 1.0"/>
+	</material>
+	
+    <link name="Pot">
+        <visual>
+			<origin rpy="0 0 0" xyz="0 0 0" />
+			<geometry>
+				<mesh filename="pot_base.obj" />
+			</geometry>
+			<material name="rock">
+				<color rgba="0.62 0.70 0.72 1.0"/>
+			</material>
+		</visual>
+		<visual>
+			<origin rpy="1.570796326794897 0 0" xyz="0 0.2 0.04" />
+			<geometry>
+				<capsule radius="0.015" length="0.2" />
+			</geometry>
+			<material name="wood">
+				<color rgba="0.55 0.32 0.16 1.0"/>
+			</material>
+		</visual>
+        <collision>
+			<origin rpy="0 0 0" xyz="0 0 0" />
+			<geometry>
+				<mesh filename="pot_base_col.obj" />
+			</geometry>
+        </collision>
+		<collision>
+			<origin rpy="1.570796326794897 0 0" xyz="0 0.2 0.04" />
+			<geometry>
+				<capsule radius="0.015" length="0.2" />
+			</geometry>
+		</collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0.02" />
+            <mass value="5" />
+            <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01" />
+        </inertial>
+    </link>
+</robot>
