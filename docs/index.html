@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CRISP Documentation</title>
+    <meta name="description" content="Documentation for CRISP, a physics engine for contact-rich robotic simulation.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="./">CRISP</a>
+        <div class="nav-links">
+          <a href="./project/">Project</a>
+          <a href="#getting-started">Getting Started</a>
+          <a href="#examples">Examples</a>
+          <a href="https://github.com/INRoL/crisp">GitHub</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Documentation</p>
+        <h1>Contact-rich robotic simulation with expressive geometry and robust solvers.</h1>
+        <p class="lead">
+          CRISP provides release packages, examples, and integration materials for complex multi-contact scenarios including insertion, grasping, gears, and bolt-nut assembly.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#getting-started">Get started</a>
+          <a class="button" href="./project/">View project page</a>
+        </div>
+      </section>
+
+      <section class="band" id="getting-started">
+        <div class="section">
+          <h2>Getting Started</h2>
+          <p>Configure and build the examples from the repository root. CMake downloads the latest CRISP release package for your platform by default.</p>
+          <pre><code>cmake -S . -B build
+cmake --build build</code></pre>
+          <p>To use the bundled Eigen dependency, configure with <code>-Dcrisp_use_bundled_eigen=ON</code>.</p>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="section">
+          <h2>Core Capabilities</h2>
+          <div class="grid">
+            <article class="card">
+              <h3>Geometry Modeling</h3>
+              <p>Primitives, convex shapes, meshes, signed distance fields, and differentiable support functions.</p>
+            </article>
+            <article class="card">
+              <h3>Contact Solvers</h3>
+              <p>Robust dense multi-contact simulation with solvers including CANAL and SubADMM.</p>
+            </article>
+            <article class="card">
+              <h3>Robotic Scenarios</h3>
+              <p>Tight-tolerance insertion, dexterous grasping, articulated robots, gears, and threaded assemblies.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="examples">
+        <div class="section">
+          <h2>Examples</h2>
+          <div class="examples">
+            <figure class="example">
+              <img src="images/01_franka.png" alt="FR3 robot with a movable box">
+              <figcaption><code>01_franka</code> FR3 robot with a movable box</figcaption>
+            </figure>
+            <figure class="example">
+              <img src="images/05_peg_in_hole.png" alt="Peg-in-hole manipulation with mesh and SDF geometry">
+              <figcaption><code>05_peg_in_hole</code> Peg-in-hole manipulation with mesh and SDF geometry</figcaption>
+            </figure>
+            <figure class="example">
+              <img src="images/06_gear_assembly.png" alt="Gear insertion and driving">
+              <figcaption><code>06_gear_assembly</code> Gear insertion and driving</figcaption>
+            </figure>
+            <figure class="example">
+              <img src="images/07_bolt_nut_assembly.png" alt="Bolt-nut assembly with threaded SDF geometry">
+              <figcaption><code>07_bolt_nut_assembly</code> Bolt-nut assembly with threaded SDF geometry</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      CRISP is maintained by the Interactive and Networked Robotics Laboratory.
+    </footer>
+  </body>
+</html>

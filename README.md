@@ -15,6 +15,7 @@ This repository hosts CRISP release packages together with examples and integrat
 ## Getting Started
 
 By default, CMake downloads the latest CRISP release for your platform during configuration.
+The commands below configure CRISP and build all example targets.
 
 ```bash
 cmake -S . -B build
@@ -26,6 +27,8 @@ To use the bundled Eigen dependency instead:
 ```bash
 cmake -S . -B build -Dcrisp_use_bundled_eigen=ON
 ```
+
+A release build is recommended for examples with Eigen-heavy code in simulation loops.
 
 Release archives are available from [GitHub Releases](https://github.com/INRoL/crisp/releases):
 
@@ -39,21 +42,21 @@ Release archives are available from [GitHub Releases](https://github.com/INRoL/c
 Each source file in `examples` is built as a separate executable.
 Run examples from the repository root because asset paths are resolved relative to the current working directory.
 
-|                                                                                                                                                                           |                                                                                                                                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src="docs/images/01_franka.png" alt="FR3 robot with a movable box" width="360"><br>`01_franka`<br>FR3 robot with a movable box                                       | <img src="docs/images/02_laikago_drop.png" alt="Stacked quadruped drop with many contacts" width="360"><br>`02_laikago_drop`<br>Stacked quadruped drop with many contacts                   |
-| <img src="docs/images/03_nut_tolerance_mesh.png" alt="Nut tolerance case using a mesh nut" width="360"><br>`03_nut_tolerance_mesh`<br>Nut tolerance case using a mesh nut | <img src="docs/images/03_nut_tolerance_sdf.png" alt="Nut tolerance case using an SDF nut" width="360"><br>`03_nut_tolerance_sdf`<br>Nut tolerance case using an SDF nut                     |
-| <img src="docs/images/04_pot_grasping.png" alt="Franka and Allegro hand pot grasping" width="360"><br>`04_pot_grasping`<br>Franka and Allegro hand pot grasping           | <img src="docs/images/05_peg_in_hole.png" alt="Peg-in-hole manipulation with mesh and SDF geometry" width="360"><br>`05_peg_in_hole`<br>Peg-in-hole manipulation with mesh and SDF geometry |
-| <img src="docs/images/06_gear_assembly.png" alt="Gear insertion and driving" width="360"><br>`06_gear_assembly`<br>Gear insertion and driving                             | <img src="docs/images/07_bolt_nut_assembly.png" alt="Bolt-nut assembly with threaded SDF geometry" width="360"><br>`07_bolt_nut_assembly`<br>Bolt-nut assembly with threaded SDF geometry   |
+|                                                                                                                                                             |                                                                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="docs/images/01_franka.png" alt="01_franka" width="360"><br>`01_franka`<br>FR3 robot with a movable box                                            | <img src="docs/images/02_laikago_drop.png" alt="02_laikago_drop" width="360"><br>`02_laikago_drop`<br>Stacked quadruped drop with many contacts                   |
+| <img src="docs/images/03_nut_tolerance_mesh.png" alt="03_nut_tolerance_mesh" width="360"><br>`03_nut_tolerance_mesh`<br>Nut tolerance case using a mesh nut | <img src="docs/images/03_nut_tolerance_sdf.png" alt="03_nut_tolerance_sdf" width="360"><br>`03_nut_tolerance_sdf`<br>Nut tolerance case using an SDF nut          |
+| <img src="docs/images/04_pot_grasping.png" alt="04_pot_grasping" width="360"><br>`04_pot_grasping`<br>Franka and Allegro hand pot grasping                  | <img src="docs/images/05_peg_in_hole.png" alt="05_peg_in_hole" width="360"><br>`05_peg_in_hole`<br>Peg-in-hole manipulation with mesh and SDF geometry            |
+| <img src="docs/images/06_gear_assembly.png" alt="06_gear_assembly" width="360"><br>`06_gear_assembly`<br>Gear insertion and driving                         | <img src="docs/images/07_bolt_nut_assembly.png" alt="07_bolt_nut_assembly" width="360"><br>`07_bolt_nut_assembly`<br>Bolt-nut assembly with threaded SDF geometry |
 
-For example:
+To build and run one example:
 
 ```bash
 cmake --build build --target 01_franka
 ./build/examples/01_franka
 ```
 
-With multi-config generators such as Visual Studio, build with `--config Release` and run the executable from the configuration subdirectory, for example `build/examples/Release/01_franka`.
+With multi-config generators such as Visual Studio, add `--config Release` when building and run the executable from the configuration subdirectory, for example `.\build\examples\Release\01_franka.exe`.
 
 ## Roadmap
 
