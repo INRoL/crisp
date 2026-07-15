@@ -2,6 +2,6 @@
 !.gitignore
 
 /build/
-/crisp/*
+/_site/
 
 imgui.ini

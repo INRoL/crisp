@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRISP</title>
+  <meta name="description"
+    content="CRISP: Contact-Rich Robotic Simulation Platform with Extensive Geometries and Contact Solvers.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"></script>
+  <script defer src="index.js"></script>
+</head>
+
+<body>
+  <div class="more-works-container">
+    <button class="more-works-btn" type="button" aria-expanded="false" aria-controls="related-publications">
+      <i class="fas fa-file-alt"></i>
+      <span>Related Works</span>
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="related-publications">
+      <div class="dropdown-header">
+        <h4>Related Publications</h4>
+        <button class="close-btn" type="button" aria-label="Close related publications">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="works-list">
+        <a class="work-item" href="https://doi.org/10.1109/TRO.2025.3577410" target="_blank" rel="noopener">
+          <div class="work-info">
+            <h5>Variations of Augmented Lagrangian for Robotic Multi-Contact Simulation</h5>
+            <p>J. Lee, M. Lee, S. Park, J. Yun, and D. J. Lee</p>
+            <span class="work-venue">IEEE Transactions on Robotics, 2025</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a class="work-item" href="https://doi.org/10.1109/ICRA48891.2023.10161052" target="_blank" rel="noopener">
+          <div class="work-info">
+            <h5>Modular and Parallelizable Multibody Physics Simulation via Subsystem-Based ADMM</h5>
+            <p>J. Lee, M. Lee, and D. J. Lee</p>
+            <span class="work-venue">IEEE International Conference on Robotics and Automation, 2023</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a class="work-item" href="https://roboticsproceedings.org/rss19/p043.html" target="_blank" rel="noopener">
+          <div class="work-info">
+            <h5>Uncertain Pose Estimation during Contact Tasks Using Differentiable Contact Features</h5>
+            <p>J. Lee, M. Lee, and D. J. Lee</p>
+            <span class="work-venue">Robotics: Science and Systems, 2023</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a class="work-item" href="https://doi.org/10.1109/IROS58592.2024.10802286" target="_blank" rel="noopener">
+          <div class="work-info">
+            <h5>Collision Detection between Smooth Convex Bodies via Riemannian Optimization Framework</h5>
+            <p>S. An, S. Lee, J. Lee, S. Park, and D. J. Lee</p>
+            <span class="work-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems, 2024</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">CRISP</h1>
+              <h2 class="subtitle publication-subtitle">Contact-Rich Robotic Simulation Platform with Extensive
+                Geometries and Contact Solvers</h2>
+
+              <div class="is-size-5 publication-authors" aria-label="Authors and affiliations">
+                <span class="author-block">Interactive & Networked Robotics Laboratory</span>
+              </div>
+
+              <div class="publication-links" aria-label="Project links">
+                <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-dark" href="https://github.com/INRoL/crisp"
+                    target="_blank" rel="noopener">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>GitHub</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-dark"
+                    href="https://github.com/INRoL/crisp/releases" target="_blank" rel="noopener">
+                    <span class="icon"><i class="fas fa-tags"></i></span>
+                    <span>Releases</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="button is-normal is-rounded is-dark" href="#BibTeX">
+                    <span class="icon"><i class="fas fa-quote-right"></i></span>
+                    <span>BibTeX</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <video autoplay muted loop playsinline controls preload="metadata"
+            aria-label="Contact-rich robotic simulation in CRISP">
+            <source src="assets/00.mp4" type="video/mp4">
+            Your browser does not support HTML video.
+          </video>
+          <h2 class="subtitle has-text-centered">
+            CRISP simulates contact-rich robotic tasks involving complex geometry and dense contacts.
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="abstract">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            CRISP is a high-fidelity physics engine for contact-rich robotic simulation. It combines expressive handling
+            of complex geometry with robust contact solvers to accurately simulate dense, tightly coupled interactions.
+          </p>
+          <p>
+            With support for meshes, signed distance fields, and differentiable support functions, CRISP captures fine
+            geometric contact across complex shapes. Its augmented Lagrangian solvers
+            resolve multi-contact constraints without relying on problematic contact relaxations, enabling physically
+            consistent simulation of tasks such as tight-tolerance insertion, gear interaction, and bolt-nut assembly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="method">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">System Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            CRISP consists of four main components: model building, collision detection, constraint solving, and
+            visualization. Through the model builder, users define robots, objects, and simulation parameters together
+            with their mechanical, geometric, and visual properties. CRISP supports collision geometries ranging from
+            primitives and convex shapes to meshes, SDFs, DSFs, and TDSFs.
+          </p>
+        </div>
+        <figure class="overview-figure">
+          <img src="assets/overview.png"
+            alt="CRISP pipeline from model building through collision detection, dynamics, constraint solving, and visualization">
+          <figcaption>High-level architecture of CRISP.</figcaption>
+        </figure>
+        <div class="content has-text-justified">
+          <p>
+            At each simulation step, the collision detection engine extracts penetration depths, contact points, and
+            normals using algorithms tailored to convex and nonconvex geometry pairs. The constraint solver then solves
+            the multibody dynamics subject to contact, joint-limit, and friction constraints using CANAL or SubADMM. The
+            resulting state advances the simulation and is displayed by the built-in visualizer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="getting-started">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Getting Started</h2>
+        <div class="content has-text-justified">
+          <p>
+            Configure the repository with CMake to download the latest CRISP release package for your platform, then
+            build one of the included examples.
+          </p>
+        </div>
+        <div class="command-platform-toggle" aria-label="Select command platform">
+          <button class="command-platform-btn active" type="button" data-command-platform="unix" aria-pressed="true">
+            Linux/macOS
+          </button>
+          <button class="command-platform-btn" type="button" data-command-platform="windows" aria-pressed="false">
+            Windows
+          </button>
+        </div>
+        <div class="code-block-wrapper">
+          <button class="copy-code-btn" type="button" data-copy-target="getting-started-code"
+            title="Copy commands to clipboard">
+            <i class="fas fa-copy"></i>
+            <span class="copy-text">Copy</span>
+          </button>
+          <pre class="command-block"><code id="getting-started-code">git clone https://github.com/INRoL/crisp.git
+cd crisp
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -Dcrisp_use_bundled_eigen=ON
+cmake --build build --target 01_franka
+./build/examples/01_franka</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Simulation Examples</h2>
+        <div class="content has-text-justified">
+          <p>
+            We provide examples spanning articulated systems, dense multi-contact dynamics, geometry-sensitive
+            interactions, and contact-rich robotic manipulation.
+          </p>
+        </div>
+        <div class="columns is-multiline">
+          <div class="column is-half">
+            <figure>
+              <img src="assets/01.png" alt="FR3 robot interaction simulation">
+              <figcaption>
+                <strong class="task-caption-title">FR3 Object Manipulation</strong>
+                <span>Articulated robot interaction with a movable box.</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="column is-half">
+            <figure>
+              <video class="task-video" autoplay muted loop playsinline controls preload="metadata"
+                aria-label="Stacked quadruped drop simulation">
+                <source src="assets/02.mp4" type="video/mp4">
+                Your browser does not support HTML video.
+              </video>
+              <figcaption>
+                <strong class="task-caption-title">Stacked Quadruped Drop</strong>
+                <span>Dense multi-contact dynamics as stacked quadrupeds fall and settle.</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="column is-half">
+            <figure>
+              <video class="task-video" autoplay muted loop playsinline controls preload="metadata"
+                aria-label="Mesh nut tolerance simulation">
+                <source src="assets/03_1.mp4" type="video/mp4">
+                Your browser does not support HTML video.
+              </video>
+              <figcaption>
+                <strong class="task-caption-title">Mesh-Based Nut Tolerance</strong>
+                <span>Tolerance-sensitive contact using a mesh representation.</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="column is-half">
+            <figure>
+              <video class="task-video" autoplay muted loop playsinline controls preload="metadata"
+                aria-label="Signed distance field nut tolerance simulation">
+                <source src="assets/03_2.mp4" type="video/mp4">
+                Your browser does not support HTML video.
+              </video>
+              <figcaption>
+                <strong class="task-caption-title">SDF-Based Nut Tolerance</strong>
+                <span>Tolerance-sensitive contact using an SDF representation.</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="column is-half">
+            <figure>
+              <video class="task-video" autoplay muted loop playsinline controls preload="metadata"
+                aria-label="Franka and Allegro hand pot grasping simulation">
+                <source src="assets/04.mp4" type="video/mp4">
+                Your browser does not support HTML video.
+              </video>
+              <figcaption>
+                <strong class="task-caption-title">Pot Grasping</strong>
+                <span>Coordinated grasping with a Franka arm and Allegro hand.</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="column is-half">
+            <figure>
+              <video class="task-video" autoplay muted loop playsinline controls preload="metadata"
+                aria-label="Peg-in-hole insertion simulation">
+                <source src="assets/05.mp4" type="video/mp4">
+                Your browser does not support HTML video.
+              </video>
+              <figcaption>
+                <strong class="task-caption-title">Peg-in-Hole Insertion</strong>
+                <span>Tight-tolerance insertion using mesh and SDF collision geometry.</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="column is-half">
+            <figure>
+              <video class="task-video" autoplay muted loop playsinline controls preload="metadata"
+                aria-label="Gear insertion and driving simulation">
+                <source src="assets/06.mp4" type="video/mp4">
+                Your browser does not support HTML video.
+              </video>
+              <figcaption>
+                <strong class="task-caption-title">Gear Insertion and Driving</strong>
+                <span>Insertion and contact-driven rotation of meshing gears.</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="column is-half">
+            <figure>
+              <video class="task-video" autoplay muted loop playsinline controls preload="metadata"
+                aria-label="Threaded bolt-nut assembly simulation">
+                <source src="assets/07.mp4" type="video/mp4">
+                Your browser does not support HTML video.
+              </video>
+              <figcaption>
+                <strong class="task-caption-title">Bolt-Nut Assembly</strong>
+                <span>Threaded assembly using SDF collision geometry.</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <div class="bibtex-header">
+          <h2 class="title">BibTeX</h2>
+          <button class="copy-bibtex-btn" type="button" title="Copy BibTeX to clipboard">
+            <i class="fas fa-copy"></i>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre id="bibtex-code" class="bibtex-block"><code>@misc{crisp2026,
+  title = {{CRISP}: Contact-Rich Robotic Simulation Platform with Extensive Geometries and Contact Solvers},
+  author = {{Interactive \& Networked Robotics Laboratory (INRoL)}},
+  year = {2026},
+  url = {https://github.com/INRoL/crisp}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      CRISP is maintained by the
+      <a href="https://www.inrol.snu.ac.kr/" target="_blank" rel="noopener">Interactive & Networked Robotics
+        Laboratory</a>.
+    </p>
+    <p class="template-credit">
+      Website template adapted from
+      <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic
+        Project Page Template</a>
+      under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
+    </p>
+  </footer>
+</body>
+
+</html>
