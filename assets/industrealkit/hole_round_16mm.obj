@@ -3,6 +3,7 @@
 # Licensed under the NVIDIA Source Code License [see LICENSE for details].
 
 # File units = meters
+mtllib hole_round_16mm.mtl
 g Round Hole
 v 0.00849191 0.000370765 0 
 v 0.00846765 0.000740824 0 
@@ -3776,6 +3777,7 @@ vn -0.996195 -0.0871557 0
 vn -0.991445 -0.130526 0 
 vn -0.999048 -0.0436194 0 
 vn -0.996195 -0.0871557 0 
+usemtl 0.615686_0.811765_0.929412_0.000000_0.000000
 o mesh0
 f 145//1 1//1 2//1 
 f 2//1 3//1 145//1 

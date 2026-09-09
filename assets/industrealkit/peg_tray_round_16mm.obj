@@ -3,6 +3,7 @@
 # Licensed under the NVIDIA Source Code License [see LICENSE for details].
 
 # File units = meters
+mtllib peg_tray_round_16mm.mtl
 g Round Peg Tray
 v 0.00849191 0.000370765 0 
 v 0.00846765 0.000740824 0 
@@ -607,6 +608,7 @@ vn 0 0 -1
 vn -1.73472e-16 -1 0 
 vn 1 0 0 
 vn 1.73472e-16 1 0 
+usemtl 0.615686_0.811765_0.929412_0.000000_0.000000
 o mesh0
 f 145//1 1//1 2//1 
 f 2//1 3//1 145//1 

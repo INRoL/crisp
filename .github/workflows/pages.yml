@@ -1,12 +1,6 @@
 name: Pages
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - ".github/workflows/pages.yml"
-      - "scripts/build_site.py"
-      - "site/**"
   workflow_dispatch:
 
 permissions:
@@ -27,6 +21,9 @@ jobs:
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
+
+      - name: Install site dependencies
+        run: python3 -m pip install -r scripts/requirements-site.txt
 
       - name: Build site
         run: python3 scripts/build_site.py

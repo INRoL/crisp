@@ -3,11 +3,11 @@ project(crisp LANGUAGES CXX)
 
 set(crisp_prefix "${PROJECT_SOURCE_DIR}/crisp")
 
-option(crisp_download_latest_release "Download the latest crisp release" ON)
-option(crisp_verify_release "Verify downloaded crisp release checksum" ON)
-option(crisp_use_bundled_eigen "Use bundled Eigen instead of find_package" OFF)
+option(crisp_download_latest_release "Download the latest CRISP release package" ON)
+option(crisp_verify_release "Verify the downloaded CRISP package with SHA-256" ON)
+option(crisp_fetch_eigen "Fetch Eigen during configuration" ON)
 
-if(crisp_use_bundled_eigen)
+if(crisp_fetch_eigen)
   include(cmake/fetch_eigen.cmake)
   crisp_fetch_eigen(3.4.0)
 else()

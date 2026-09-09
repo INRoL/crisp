@@ -1,3 +1,5 @@
+# Modified by INRoL for the CRISP examples.
+#
 # Free SolidWorks .OBJ Exporter v2.0
 # num_materials: 19 
 
@@ -191,4 +193,3 @@ Tf 1.0
 illum 2
 Ns  687.5 
 Ni 1.0
-

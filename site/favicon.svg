@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="3 5 56 58">
+  <title>CRISP — robotic assembly</title>
+  <g fill="#526e85">
+    <path d="M5 57h20v5H5Z"/>
+    <path d="M10 58V43h10v15Z"/>
+  </g>
+  <path d="M15 44 12 23 30 12 49 28v12" fill="none" stroke="#526e85" stroke-width="8.5" stroke-linejoin="round"/>
+  <g fill="#b5c6d2">
+    <circle cx="15" cy="44" r="5"/>
+    <circle cx="12" cy="23" r="5"/>
+    <circle cx="30" cy="12" r="5"/>
+    <circle cx="49" cy="28" r="4"/>
+  </g>
+  <rect x="47.5" y="46" width="3" height="10" rx=".5" fill="#b5c6d2"/>
+  <g fill="#526e85">
+    <rect x="42.5" y="37" width="13" height="7" rx="2"/>
+    <path d="M42.5 42H45.5V48.5H47.5V51.5H42.5Z"/>
+    <path d="M55.5 42H52.5V48.5H50.5V51.5H55.5Z"/>
+  </g>
+  <path d="M41 60h16" stroke="#b5c6d2" stroke-width="4"/>
+  <circle cx="49" cy="57" r="3.5" fill="#e77b4b"/>
+</svg>
