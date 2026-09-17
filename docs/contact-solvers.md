@@ -38,7 +38,7 @@ Set the solver on the builder before constructing the model:
 
 ```cpp
 builder->opt().sol.type = crisp::solver_e::canal;
-builder->opt().sol.max_iter = 20;
+builder->opt().canal.max_iter = 20;
 ```
 
 Use `crisp::solver_e::sub_admm` to select SubADMM. The table covers the main
@@ -48,10 +48,14 @@ solver controls; solver-specific penalty settings are declared in
 | Option | Meaning |
 | --- | --- |
 | `sol.type` | Contact solver: `canal` or `sub_admm`. |
-| `sol.max_iter` | Maximum outer solver iterations per time step. |
+| `canal.max_iter`<br>`sub_admm.max_iter` | Maximum iterations per time step for CANAL and SubADMM, respectively. |
+| `canal.max_iter_inner` | Maximum CANAL inner iterations per outer iteration. |
+| `sol.min_res` | Absolute residual target shared by both solvers. |
+| `sol.min_rel_res` | Relative change threshold used to detect stagnation. |
 | `sol.warmstart` | Reuse solver state from the preceding time step. |
 
-An iteration limit bounds work but does not guarantee a small residual.
+Reaching an iteration limit does not mean that the solve converged, and the
+relative threshold detects stagnation rather than relative solution accuracy.
 SubADMM can reduce solve time, though it may leave larger residuals than CANAL
 within a limited computation budget. Models with many degrees of freedom or
 contacts can still exceed real-time budgets with either solver.

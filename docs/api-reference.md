@@ -8,16 +8,46 @@ and overloads for that release.
 
 ## Construction and ownership
 
-| Operation | Result and use |
-| --- | --- |
-| `make_model_builder()` | Returns an owning `model_builder_ptr`. Configure a scene before building it. |
-| `ModelBuilder::build()` | Returns an owning `model_ptr` containing the built model. |
-| `make_data(model_t const& m)` | Returns an owning `data_ptr` allocated for `m`. Initialize it with `reset`. |
-| `make_app(model_ptr m, bool run = true)` | Returns an owning `app_ptr` and takes ownership of the model. Pass the model handle with `std::move`. |
+```cpp
+model_builder_ptr make_model_builder();
+model_ptr ModelBuilder::build();
+
+data_ptr make_data(model_t const& m);
+
+app_ptr make_app(model_ptr m, bool run = true);
+app_ptr make_app(char const* file_name, bool run = true);
+app_ptr make_app(path_t const& file_name, bool run = true);
+```
+
+- `make_model_builder` creates a builder; `ModelBuilder::build` returns the
+  completed model.
+- `make_data` allocates simulation data for a model. Initialize it with `reset`.
+- `make_app` creates an application. The `model_ptr` overload takes ownership;
+  the file-name overloads load the model first.
 
 Keep the model alive while using its data. The owning handles release their
 objects when destroyed. Views returned from model/data storage do not transfer
 ownership; do not retain them after their owner is destroyed.
+
+## Model files
+
+```cpp
+using path_t = std::filesystem::path;
+
+model_ptr load_model(char const* file_path);
+model_ptr load_model(path_t const& file_path);
+
+bool save_model(model_t const& m, char const* file_path);
+bool save_model(model_t const& m, path_t const& file_path);
+```
+
+Use `save_model` to store a built model and `load_model` to restore it. Model
+files are versioned and checked when loaded, but compatibility is guaranteed
+only within the same CRISP version. Keep the scene definition as the source of
+truth and recreate saved models after updating CRISP.
+
+Always check the result of `load_model` before passing it to `make_data` or
+`make_app`.
 
 ## Stepping and initialization
 
@@ -65,25 +95,42 @@ features are generated and interpreted.
 
 ## Application and control
 
-`AppManager::setControl` accepts a callable with this argument pattern:
+`AppManager::setControl` installs a control callable:
 
 ```cpp
-(model_t const& model, data_t const& data,
- Ref<VectorXr> u, Ref<VectorXr> udot)
+template <typename Callable>
+void setControl(Callable&& callable);
+```
+
+The callable must accept the following arguments:
+
+```cpp
+void control(
+  model_t const& m, data_t const& d,
+  Ref<VectorXr> u, Ref<VectorXr> udot);
 ```
 
 The callback writes actuator inputs for the current step. Install it before
 `init()`, keep captured objects alive for as long as the callback uses them,
 and avoid acquiring the application lock from inside the callback.
 
-| Method | Use |
-| --- | --- |
-| `init(title, width, height)` | Initialize the viewer and simulation engine. |
-| `isOpen()` | Check whether the viewer window remains open. |
-| `render()` | Update the viewer in the application loop. |
-| `lock()` | Return an RAII lock for synchronized access to the application's model and data. |
-| `model()`, `data()` | Access the application's model and working state. |
-| `shutdown()` | Stop the engine and close the window. |
+```cpp
+void init(char const* title = "CRISP🍟", int width = 1200, int height = 900);
+bool isOpen() const;
+void render();
+void shutdown();
+
+AppLock lock();
+model_t const& model() const;
+model_t& model();
+data_t const& data() const;
+data_t& data();
+```
+
+- `init`, `isOpen`, `render`, and `shutdown` manage the viewer and simulation
+  engine.
+- `lock` returns an RAII lock for synchronized access to the model and data.
+- `model` and `data` provide const and mutable accessors.
 
 When accessing live model/data outside the control callback, hold the lock for
 the duration of that access:
@@ -102,8 +149,7 @@ the duration of that access:
 using sdf_eval_fn = int (*)(
   Ref<Vector3r const> x_rel, Ref<VectorXr const> param, int requested,
   real_t& phi, Ref<Vector3r> grad, Ref<Matrix3r> hess);
-using sdf_aabb_fn = void (*)(
-  Ref<VectorXr const> param, Ref<Vector6r> aabb);
+using sdf_aabb_fn = void (*)(Ref<VectorXr const> param, Ref<Vector6r> aabb);
 
 struct sdf_impl_t {
   char const* name = nullptr;

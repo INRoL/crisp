@@ -26,6 +26,7 @@ settings, and viewer controls.
 - [Contact solvers](contact-solvers.md): CANAL, SubADMM, and numerical settings
 - [Using CRISP](using-crisp.md): C++ model construction, stepping, and control
 - [API reference](api-reference.md): operations, ownership, state access, and callbacks
+- [Release notes](release-notes.md): feature updates and breaking changes by version
 
 See [Publications](publications.md) for the method papers and evaluations. CRISP
 is available for academic and non-commercial research under the

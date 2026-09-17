@@ -196,7 +196,7 @@ int main() {
   builder->opt().con.margin = {0.001, 0.001, 0.002};
   builder->opt().con.erp = 0.1;
   builder->opt().sol.type = crisp::solver_e::canal;
-  builder->opt().sol.max_iter = 20;
+  builder->opt().canal.max_iter = 20;
   builder->cap().ncon_max = 100;
 
   auto model = builder->build();

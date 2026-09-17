@@ -115,6 +115,12 @@ pre { margin: 0; overflow-x: auto; line-height: 1.8; tab-size: 2; }
 .docs-toc ul { list-style: none; margin: 0; padding: 0; }
 .docs-toc > .toc > ul > li > a { display: none; }
 .docs-toc li a { display: block; font-size: 11px; line-height: 1.5; color: var(--muted); padding: 6px 0; }
+.docs-release-notes .docs-toc > .toc > ul > li > a { display: block; }
+.docs-release-notes .release-toc-version details > summary { cursor: pointer; color: var(--muted); }
+.docs-release-notes .release-toc-version details > summary a { display: inline-block; color: var(--ink); font-weight: 600; }
+.docs-release-notes .release-toc-version > a { color: var(--ink); font-weight: 600; }
+.docs-release-notes .release-toc-version ul { margin: 2px 0 8px 4px; padding-left: 12px; border-left: 1px solid var(--line); }
+.docs-release-notes .release-toc-version ul a { padding: 4px 0; }
 .prose { min-width: 0; text-wrap: pretty; }
 .prose h1 { font-size: 36px; margin-bottom: 24px; }
 .prose h2 { font-size: 26px; margin: 36px 0 16px; }
@@ -142,8 +148,9 @@ pre { margin: 0; overflow-x: auto; line-height: 1.8; tab-size: 2; }
 .docs-model-construction .prose table:has(th:nth-child(3)) th:nth-child(1) { width: 28%; }
 .docs-model-construction .prose table:has(th:nth-child(3)) th:nth-child(2) { width: 22%; }
 .docs-model-construction .prose table:has(th:nth-child(3)) th:nth-child(3) { width: 50%; }
-.docs-contact-solvers .prose th:nth-child(1) { width: 28%; }
-.docs-contact-solvers .prose th:nth-child(2) { width: 72%; }
+.docs-contact-solvers .prose th:nth-child(1) { width: 36%; }
+.docs-contact-solvers .prose th:nth-child(2) { width: 64%; }
+.docs-contact-solvers .prose td:first-child code { white-space: nowrap; }
 .docs-api-reference .prose th:nth-child(1) { width: 36%; }
 .docs-api-reference .prose th:nth-child(2) { width: 64%; }
 .prose blockquote { border-left: 3px solid var(--accent); margin: 22px 0; padding-left: 18px; }
@@ -191,6 +198,7 @@ pre { margin: 0; overflow-x: auto; line-height: 1.8; tab-size: 2; }
   .docs-nav nav { display: grid; grid-template-columns: 1fr 1fr; }
   .docs-nav .nav-group { grid-column: 1 / -1; }
   .prose h1 { font-size: 32px; }
+  .docs-contact-solvers .prose td:first-child code { white-space: normal; }
 }
 @media(max-width:380px) {
   .header nav { justify-content: flex-start; }

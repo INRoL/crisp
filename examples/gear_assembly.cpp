@@ -341,7 +341,7 @@ int main() {
   builder->opt().con.margin = {0.001, 0.001, 0.002};
   builder->opt().con.erp = 0.1;
   builder->opt().sol.type = crisp::solver_e::sub_admm;
-  builder->opt().sol.max_iter = 200;
+  builder->opt().sub_admm.max_iter = 200;
   builder->cap().ncon_max = 200;
   builder->cap().nthread = 0;
 

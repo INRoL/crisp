@@ -24,6 +24,7 @@ PAGES = [
     ("contact-solvers", "Contact solvers", "CANAL, SubADMM, and numerical settings."),
     ("using-crisp", "Using CRISP", "Build, control, step, and inspect a simulation."),
     ("api-reference", "API reference", "Operations, state, ownership, and callbacks."),
+    ("release-notes", "Release notes", "Feature updates and breaking changes by version."),
     ("publications", "Publications", "Method papers and citation information."),
     ("licenses", "Licenses", "Sources and license information for example assets."),
 ]
@@ -70,6 +71,66 @@ def render_doc(slug, title, description):
     parser = markdown.Markdown(extensions=["fenced_code", "tables", "toc", "sane_lists"])
     content = parser.convert(source.read_text(encoding="utf-8"))
 
+    if slug == "release-notes":
+        versions = []
+
+        def version_heading(match):
+            version = match.group(1)
+            version_id = "v-" + version.replace(".", "-")
+            versions.append({"id": version_id, "label": version, "sections": []})
+            return f'<h2 id="{version_id}">{version}</h2>'
+
+        content = re.sub(
+            r'<h2 id="[^"]+">(\d+\.\d+\.\d+)</h2>',
+            version_heading,
+            content,
+        )
+        version_by_id = {version["id"]: version for version in versions}
+        current_version = None
+
+        def scope_release_heading(match):
+            nonlocal current_version
+            level, heading_id, heading_html = match.groups()
+            if level == "2":
+                current_version = version_by_id.get(heading_id)
+            elif current_version is not None:
+                base_id = re.sub(r"_\d+$", "", heading_id)
+                heading_id = f'{current_version["id"]}-{base_id}'
+                heading_text = html.unescape(re.sub(r"<[^>]+>", "", heading_html))
+                current_version["sections"].append((heading_id, heading_text))
+            return f'<h{level} id="{heading_id}">{heading_html}</h{level}>'
+
+        content = re.sub(
+            r'<h([23]) id="([^"]+)">(.*?)</h\1>',
+            scope_release_heading,
+            content,
+            flags=re.S,
+        )
+
+        latest_version = max(
+            versions,
+            key=lambda version: tuple(int(part) for part in version["label"].split(".")),
+        )
+        toc_items = []
+        for version in versions:
+            version_link = f'<a href="#{version["id"]}">{version["label"]}</a>'
+            if version["sections"]:
+                section_links = "".join(
+                    f'<li><a href="#{section_id}">{html.escape(section_title)}</a></li>'
+                    for section_id, section_title in version["sections"]
+                )
+                open_attribute = " open" if version is latest_version else ""
+                toc_items.append(
+                    '<li class="release-toc-version">'
+                    f'<details{open_attribute}><summary>{version_link}</summary>'
+                    f'<ul>{section_links}</ul></details></li>'
+                )
+            else:
+                toc_items.append(f'<li class="release-toc-version">{version_link}</li>')
+        toc = '<div class="toc"><ul>' + "".join(toc_items) + "</ul></div>"
+    else:
+        toc = parser.toc
+
     def rewrite(match):
         attribute, value = match.groups()
         url = urlsplit(html.unescape(value))
@@ -91,7 +152,7 @@ def render_doc(slug, title, description):
 
     content = re.sub(r'(href|src)="([^"]+)"', rewrite, content)
     navigation = []
-    groups = {"overview": "Get started", "model-construction": "Models and methods", "using-crisp": "C++ development", "publications": "References"}
+    groups = {"overview": "Get started", "model-construction": "Models and methods", "using-crisp": "C++ development", "release-notes": "Project"}
     for name, label, _ in PAGES:
         if name in groups:
             navigation.append(f'<p class="nav-group">{groups[name]}</p>')
@@ -112,14 +173,14 @@ def render_doc(slug, title, description):
 <title>{html.escape(title)} — CRISP</title>
 <meta name="description" content="{html.escape(description, quote=True)}">
 <link rel="icon" href="../../favicon.svg?v=gripper-symmetric" type="image/svg+xml">
-<link rel="stylesheet" href="../../styles.css?v=mobile-title-wrap">
+<link rel="stylesheet" href="../../styles.css?v=release-section-toc">
 </head><body class="docs-page docs-{html.escape(slug)}">
 <a class="skip" href="#main">Skip to content</a>
 {render_header('../../', active='publications' if slug == 'publications' else 'documentation')}
 <div class="docs-layout wrap">
 <aside class="docs-nav"><details open><summary>Guide contents</summary><nav aria-label="Documentation">{nav}</nav></details></aside>
 <main id="main" class="prose">{content}{pager}</main>
-<aside class="docs-toc"><p class="eyebrow">On this page</p>{parser.toc}</aside>
+<aside class="docs-toc"><p class="eyebrow">On this page</p>{toc}</aside>
 </div>
 <footer class="footer wrap"><p>CRISP · Interactive &amp; Networked Robotics Laboratory</p><a href="https://github.com/INRoL/crisp/blob/main/docs/{slug}.md">View Markdown ↗</a></footer>
 </body></html>'''

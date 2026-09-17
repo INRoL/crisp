@@ -27,6 +27,9 @@ and the contacts of interest:
 | Signed distance field (SDF) | Implicit geometry evaluated by a registered function and its parameters. |
 | Differentiable support function (DSF) | Smooth support-function descriptions of convex geometry. |
 
+Triangle meshes can use their convex hull for applicable collision pairs. This
+fallback is enabled by default and controlled by `mesh_t::cvx_fallback`.
+
 Primitive size helpers such as `make_box_size` take full dimensions and produce
 the size representation expected by `geometry_t`. For example:
 
@@ -114,18 +117,26 @@ builder->cap().nthread = 1;
 
 | Setting | Default | Meaning |
 | --- | --- | --- |
-| `opt().dt` | `0.01` | Simulation time step in seconds. |
+| `opt().dt` | `0.005` | Simulation time step in seconds. |
 | `opt().gravity` | `{0, 0, -9.81}` | World-frame gravitational acceleration in m/s². |
 | `opt().con.margin` | `{0.01, 0.01, 0.01}` | Broad-phase absolute padding (m), relative padding, and narrow-phase detection distance (m), in that order. |
 | `opt().con.erp` | `0.1` | Error reduction parameter for contact penetration correction. |
 | `opt().con.cache` | `true` | Reuse collision detection information from the preceding step. |
 | `cap().nthread` | `1` | Total thread count, including the calling thread. Use `0` to select the hardware thread count automatically. |
 | `cap().ncon_max` | `100` | Maximum contact features retained across the model per step; additional features are discarded. |
+| `cap().nstack` | `0` | Main workspace capacity in bytes. Zero selects automatic sizing. |
+| `cap().narena` | `0` | Workspace capacity per collision worker in bytes. Zero selects automatic sizing. |
 
 CRISP runs simulation on the CPU, with parallelism currently limited to collision
 detection. Solver cost still grows with the number of contact points, so limiting
 them helps keep step times manageable. However, retaining too few can omit
 contacts needed to represent an interaction and lead to unstable behavior.
+
+Resolved workspace capacities are available through `data.cap.nstack` and
+`data.cap.narena`. The viewer's **Diagnostics > Memory** panel reports recent
+and peak workspace use. Set capacities before constructing data. If a simulation
+step exceeds either configured capacity, CRISP reports the overflow and
+terminates the process instead of growing the workspace during simulation.
 
 See [Contact solvers](contact-solvers.md#numerical-settings) for solver settings.
 To change `opt()` settings after construction, use

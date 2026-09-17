@@ -41,6 +41,14 @@ With Visual Studio, use the configuration subdirectory:
 
 See [Examples](examples.md) for model descriptions and viewer controls.
 
+## Update
+
+CMake reuses the release package in `crisp/`. To update an existing checkout,
+remove that generated directory and the CMake build directory, then configure
+and build again. This downloads the latest package and rebuilds the examples
+against its headers and libraries. Review the [Release notes](release-notes.md)
+for API changes.
+
 ## Troubleshooting
 
 | Symptom | Check |
