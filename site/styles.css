@@ -95,7 +95,8 @@ pre { margin: 0; overflow-x: auto; line-height: 1.8; tab-size: 2; }
 .paper-list h3 { font-size: 17px; line-height: 1.5; }
 .paper-list .paper-arrow { position: absolute; right: 0; top: 22px; font-size: 17px; }
 .footer { padding-block: 26px 32px; border-top: 1px solid var(--line); }
-.footer-main { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.footer-main { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.docs-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .footer p { font-size: 11px; color: var(--muted); }
 .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
 .footer a:not(.wordmark) { font-size: 12px; }

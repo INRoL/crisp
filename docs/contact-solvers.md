@@ -13,7 +13,9 @@ multi-contact nonlinear complementarity problem. Both methods enforce the
 contact conditions without relaxation. Under unilateral normal contact and
 Coulomb friction, each contact may separate, stick, or slide.
 
-For more details, see our [TRO 2025 paper, Sections IV–VI](https://doi.org/10.1109/TRO.2025.3577410).
+For details on the contact solvers, see our
+[TRO 2025 paper, Sections IV–VI](https://doi.org/10.1109/TRO.2025.3577410) and
+the [CRISP paper](https://inrol.github.io/crisp/papers/crisp-preprint.pdf).
 
 ## CANAL
 

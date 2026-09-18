@@ -21,6 +21,7 @@ Please also cite the relevant papers below when using the corresponding methods.
 
 ## Related publications
 
+- S. Lee, S. Park, J. Yun, S. An, and D. J. Lee, "[CRISP: Contact-Rich Robotic Simulation Platform with Extensive Geometries and Contact Solvers](https://inrol.github.io/crisp/papers/crisp-preprint.pdf)," arXiv preprint, 2026.
 - J. Lee, M. Lee, S. Park, J. Yun, and D. J. Lee, "[Variations of Augmented Lagrangian for Robotic Multi-Contact Simulation](https://doi.org/10.1109/TRO.2025.3577410)," IEEE Transactions on Robotics, 2025.
 - J. Lee, M. Lee, and D. J. Lee, "[Modular and Parallelizable Multibody Physics Simulation via Subsystem-Based ADMM](https://doi.org/10.1109/ICRA48891.2023.10161052)," IEEE International Conference on Robotics and Automation, 2023.
 - H. Ji, H. Kim, J. Lee, S. Lee, S. An, J. Heo, Y. Lee, Y. Lee, and D. J. Lee, "[GPU-Accelerated Subsystem-Based ADMM for Large-Scale Interactive Simulation](https://doi.org/10.1109/ICRA55743.2025.11128665)," IEEE International Conference on Robotics and Automation, 2025.

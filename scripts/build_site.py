@@ -173,7 +173,7 @@ def render_doc(slug, title, description):
 <title>{html.escape(title)} — CRISP</title>
 <meta name="description" content="{html.escape(description, quote=True)}">
 <link rel="icon" href="../../favicon.svg?v=gripper-symmetric" type="image/svg+xml">
-<link rel="stylesheet" href="../../styles.css?v=release-section-toc">
+<link rel="stylesheet" href="../../styles.css?v=contact-footer">
 </head><body class="docs-page docs-{html.escape(slug)}">
 <a class="skip" href="#main">Skip to content</a>
 {render_header('../../', active='publications' if slug == 'publications' else 'documentation')}
@@ -182,7 +182,7 @@ def render_doc(slug, title, description):
 <main id="main" class="prose">{content}{pager}</main>
 <aside class="docs-toc"><p class="eyebrow">On this page</p>{toc}</aside>
 </div>
-<footer class="footer wrap"><p>CRISP · Interactive &amp; Networked Robotics Laboratory</p><a href="https://github.com/INRoL/crisp/blob/main/docs/{slug}.md">View Markdown ↗</a></footer>
+<footer class="footer docs-footer wrap"><p>CRISP · Interactive &amp; Networked Robotics Laboratory</p><div class="footer-links"><a href="mailto:hopelee@snu.ac.kr" aria-label="Contact CRISP by email">Contact</a><a href="https://github.com/INRoL/crisp/blob/main/docs/{slug}.md">View Markdown ↗</a></div></footer>
 </body></html>'''
 
 

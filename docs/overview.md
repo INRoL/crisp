@@ -5,6 +5,11 @@ collision geometries and robust contact solvers to simulate multibody dynamics
 with frictional contact. We provide a prebuilt C++ library, headers, and two
 examples with the assets required to run them.
 
+For a detailed description of CRISP's design, collision handling, and contact
+solvers, see the
+[CRISP paper](https://inrol.github.io/crisp/papers/crisp-preprint.pdf).
+Related method papers are listed under [Publications](publications.md).
+
 ## Assembly scenarios
 
 Both models use a Franka arm with a Robotiq 2F-85 gripper.
@@ -28,7 +33,7 @@ settings, and viewer controls.
 - [API reference](api-reference.md): operations, ownership, state access, and callbacks
 - [Release notes](release-notes.md): feature updates and breaking changes by version
 
-See [Publications](publications.md) for the method papers and evaluations. CRISP
-is available for academic and non-commercial research under the
+See [Publications](publications.md) for the related papers. CRISP is available
+for academic and non-commercial research under the
 [CRISP license](../LICENSE); third-party assets retain
 [their own terms](licenses.md).

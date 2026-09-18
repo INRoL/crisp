@@ -75,6 +75,10 @@ contact reduction retains representative features to limit solver work. This
 balances contact coverage against cost; a smaller set may omit details needed
 to support the geometry.
 
+For details on the supported geometry pairs and the collision-detection method
+used for each pair, see the
+[CRISP paper](https://inrol.github.io/crisp/papers/crisp-preprint.pdf).
+
 ## Custom distance functions
 
 Register an SDF evaluation function and an axis-aligned bounding-box function
