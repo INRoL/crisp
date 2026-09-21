@@ -41,9 +41,13 @@ auto& geom = body.addGeom({
 ```
 
 A geometry has a local pose relative to its body. Its contact settings include
-friction (`mu`) and collision-filter fields (`con_type`, `con_affinity`). Set
-`visual = false` for collision-only geometry. To make a visual-only geometry,
-set both contact-filter fields to zero.
+friction (`mu`), normal contact stiffness (`k`), and collision-filter fields
+(`con_type`, `con_affinity`). Stiffness is measured in N/m; `k = 0` represents a
+rigid contact surface.
+
+Set `visual = false` for collision-only geometry. To make a visual-only
+geometry, set both contact-filter fields to zero. A plane must belong to a body
+fixed to the world.
 
 CRISP supports custom, parameterized SDFs. The zero level set defines the
 surface, while a callback evaluates the field and its derivatives. Parameters
@@ -56,6 +60,10 @@ in each direction and provide derivatives to collision detection. See the
 representation and the
 [IROS 2024 paper](https://doi.org/10.1109/IROS58592.2024.10802286) for collision
 detection via Riemannian optimization.
+
+The asset creation operations `createConvex`, `createMesh`, `createSDF`,
+`createDSF`, and `createTDSF` return `bool`. Check the result before continuing;
+invalid input returns `false`.
 
 ## Collision detection
 

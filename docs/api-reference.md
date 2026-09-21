@@ -20,7 +20,7 @@ app_ptr make_app(path_t const& file_name, bool run = true);
 ```
 
 - `make_model_builder` creates a builder; `ModelBuilder::build` returns the
-  completed model.
+  completed model, or an empty handle if model construction fails.
 - `make_data` allocates simulation data for a model. Initialize it with `reset`.
 - `make_app` creates an application. The `model_ptr` overload takes ownership;
   the file-name overloads load the model first.

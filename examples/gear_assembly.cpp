@@ -213,7 +213,7 @@ void update_control(Eigen::Ref<Eigen::VectorXd> act_in, double time,
 
 int main() {
   constexpr double pla_mu = 0.35;
-  constexpr double pla_k = 1e5;
+  constexpr double pla_k = 1e7;  // N/m
   constexpr double gear_bore_diameter = 0.0105;
 
   const int gear_sdf_type =

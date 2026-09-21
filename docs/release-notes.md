@@ -1,5 +1,26 @@
 # Release notes
 
+## 1.1.1
+
+CRISP 1.1.1 corrects contact-stiffness handling and improves input validation in
+the public builder API.
+
+### Contact stiffness
+
+- Geometry stiffness `k` is now handled consistently in N/m.
+- Updated the assembly examples for the corrected stiffness behavior.
+
+### Validation
+
+- `Geometry::createConvex`, `createMesh`, `createSDF`, `createDSF`, and
+  `createTDSF` now return `bool` instead of `void`.
+- `register_package_root` and `set_log_level` now return `bool` instead of
+  `void`.
+- `ModelBuilder::build()` returns an empty handle when model construction fails.
+- Invalid URDF imports return `false`.
+
+See [Update](installation.md#update) for the package refresh procedure.
+
 ## 1.1.0
 
 CRISP 1.1.0 adds collision pairs, solver-specific iteration limits, runtime

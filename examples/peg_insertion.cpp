@@ -105,7 +105,7 @@ void update_control(Eigen::Ref<Eigen::VectorXd> act_in, double time,
 int main() {
   constexpr double steel_mu = 0.15;
   constexpr double pla_mu = 0.35;
-  constexpr double pla_k = 1e5;
+  constexpr double pla_k = 1e7;  // N/m
 
   const int peg_sdf_type = crisp::register_sdf({.name = "peg_insertion/peg",
                                                 .eval = evaluate_peg_sdf,
