@@ -1,6 +1,14 @@
 name: Pages
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/**"
+      - "site/**"
+      - "scripts/build_site.py"
+      - "scripts/requirements-site.txt"
   workflow_dispatch:
 
 permissions:
