@@ -7,7 +7,7 @@ examples with the assets required to run them.
 
 For a detailed description of CRISP's design, collision handling, and contact
 solvers, see the
-[CRISP paper](https://inrol.github.io/crisp/papers/crisp-preprint.pdf).
+[CRISP paper](https://doi.org/10.48550/arXiv.2609.21761).
 Related method papers are listed under [Publications](publications.md).
 
 ## Assembly scenarios

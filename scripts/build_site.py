@@ -214,7 +214,7 @@ def build():
     landing = re.sub(r'<header class="header wrap">.*?</header>', render_header(), landing, count=1, flags=re.S)
     refs = References()
     refs.feed(landing)
-    files = {"index.html", "styles.css", "favicon.svg"}
+    files = {"index.html", "styles.css", "favicon.svg", "papers/crisp-preprint.pdf"}
     for value in refs.urls:
         url = urlsplit(value)
         if url.scheme or url.netloc or not url.path or url.path in {"./", "/"}:

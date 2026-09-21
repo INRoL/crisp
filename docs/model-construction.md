@@ -77,7 +77,7 @@ to support the geometry.
 
 For details on the supported geometry pairs and the collision-detection method
 used for each pair, see the
-[CRISP paper](https://inrol.github.io/crisp/papers/crisp-preprint.pdf).
+[CRISP paper](https://doi.org/10.48550/arXiv.2609.21761).
 
 ## Custom distance functions
 

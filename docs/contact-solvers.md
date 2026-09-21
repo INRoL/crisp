@@ -15,7 +15,7 @@ Coulomb friction, each contact may separate, stick, or slide.
 
 For details on the contact solvers, see our
 [TRO 2025 paper, Sections IV–VI](https://doi.org/10.1109/TRO.2025.3577410) and
-the [CRISP paper](https://inrol.github.io/crisp/papers/crisp-preprint.pdf).
+the [CRISP paper](https://doi.org/10.48550/arXiv.2609.21761).
 
 ## CANAL
 
